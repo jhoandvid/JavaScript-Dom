@@ -135,7 +135,7 @@ $card.classList.toggle("opacity-80", "sepia");
  */
 
 //Texto y HTML
-const $whatIsDom = document.getElementById("que-es");
+/* const $whatIsDom = document.getElementById("que-es");
 
 let text = ` 
   <p>
@@ -156,4 +156,23 @@ let text = `
 //$whatIsDom.innerText = text;
 $whatIsDom.textContent = text;
 $whatIsDom.innerHTML = text;
-$whatIsDom.outerHTML = text; //Remplaza el elemento del dom por el contenido que se tiene guardar.
+$whatIsDom.outerHTML = text; //Remplaza el elemento del dom por el contenido que se tiene guardar. */
+
+//DOM Traversing: Recorriendo el DOM
+
+/* const $cards = document.querySelector(".cards");
+
+console.log($cards);
+console.log($cards.children);
+console.log($cards.children[2]);
+console.log($cards.parentElement);
+console.log($cards.firstChild);
+console.log($cards.firstElementChild);
+console.log($cards.lastChild);
+console.log($cards.lastElementChild);
+console.log($cards.previousSibling);
+console.log($cards.previousElementSibling);
+console.log($cards.nextElementSibling);
+console.log($cards.closest("div"));
+console.log($cards.closest("body"));
+console.log($cards.children[3].closest("section")); */
