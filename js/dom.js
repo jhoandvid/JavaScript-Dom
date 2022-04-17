@@ -176,3 +176,335 @@ console.log($cards.nextElementSibling);
 console.log($cards.closest("div"));
 console.log($cards.closest("body"));
 console.log($cards.children[3].closest("section")); */
+
+/* *********************************************************************************** */
+/* //Creando Elementos  y Fragmentos
+const $figure = document.createElement("figure"),
+  $img = document.createElement("img"),
+  $figcaption = document.createElement("figcaption"),
+  $figcaptionText = document.createTextNode("Animals"),
+  $cards = document.querySelector(".cards");
+$figure2 = document.createElement("figure");
+
+$img.setAttribute("src", "https://placeimg.com/200/200/animals");
+$img.setAttribute("alt", "Animals");
+$figure.classList.add("card"); //agrega la clase cards a la etiqueta figure
+
+$figcaption.appendChild($figcaptionText);
+$figure.appendChild($img);
+$figure.appendChild($figcaption);
+$cards.appendChild($figure);
+//Otra forma:
+
+$figure2.innerHTML = `
+<img src="https://placeimg.com/200/200/people" alt="People">
+<figcaption>People</figcaption>
+`;
+
+$figure2.classList.add("card");
+$cards.appendChild($figure2);
+
+//Agregar dinamicamente cantidades de elementos de una lista
+
+//Estaciones
+const estaciones = ["Primavera", "Verano", "Otoño", "Invierno"],
+  $ul = document.createElement("ul");
+
+document.write("<h3>Estaciones del año</h3>");
+document.body.appendChild($ul);
+
+estaciones.forEach((el) => {
+  const $li = document.createElement("li");
+  $li.textContent = el;
+  $ul.appendChild($li);
+});
+
+//continentes
+const continentes = ["África", "América", "Asia", "Europa", "Oceanía"],
+  $ul2 = document.createElement("ul");
+document.write("<h3>Continenetes del mundo:</h3>");
+
+document.body.appendChild($ul2); */
+
+/* continentes.forEach((el) => {
+  const $li2 = document.createElement("li");
+  $li2.textContent = el;
+  $ul2.appendChild($li2);
+}); */
+/* 
+//Otra forma
+$ul2.innerHTML = "";
+continentes.forEach((el) => ($ul2.innerHTML += `<li>${el}</li>`));
+
+//Prectica
+const deportes = [
+  "atletismo",
+  "remo",
+  "bádminton",
+  "baloncesto",
+  "boxeo",
+  "canotaje",
+  "ciclismo",
+  "ecuestre",
+  "esgrima",
+  "fútbol",
+  "gimnasia",
+  "halterofilia",
+  "balonmano",
+  "hockey",
+  "judo",
+  "natación",
+  "pentatlón moderno",
+  "taekwondo",
+  "tenis",
+  "tenis de mesa",
+  "tiro",
+  "tiro con arco",
+  "triatlón",
+  "vela",
+  "voleibol de playa",
+];
+
+const $ul3 = document.createElement("ul");
+const $fragment1 = document.createDocumentFragment();
+deportes.forEach((el) => {
+  const $li = document.createElement("li");
+  $li.textContent = el;
+  $fragment1.appendChild($li);
+});
+document.write("<h3>Todos los deportes</h3>");
+$ul3.appendChild($fragment1);
+document.body.appendChild($ul3);
+
+// Para cientos de Elementos
+const meses = [
+  "Enero",
+  "Febrero",
+  "Marzo",
+  "Abril",
+  "Mayo",
+  "Junio",
+  "Julio",
+  "Agosto",
+  "Septiembre",
+  "Octubre",
+  "Noviembre",
+  "Diciembre",
+];
+
+$ul4 = document.createElement("ul");
+$fragment = document.createDocumentFragment();
+
+meses.forEach((el) => {
+  const $li = document.createElement("li");
+  $li.textContent = el;
+  $fragment.appendChild($li);
+});
+
+document.write("<h3>Meses del año</h3>");
+$ul4.appendChild($fragment);
+document.body.appendChild($ul4); */
+/* *********************************************************************************** */
+
+//Templates HTML
+/* const $cards = document.querySelector(".cards"),
+  $template = document.getElementById("template-card").content,
+  $fragment = document.createDocumentFragment(),
+  cardContent = [
+    {
+      title: "Tecnología",
+      img: "https://placeimg.com/200/200/tech",
+    },
+    {
+      title: "Animales",
+      img: "https://placeimg.com/200/200/animals",
+    },
+    {
+      title: "Arquitectura",
+      img: "https://placeimg.com/200/200/arch",
+    },
+    {
+      title: "Gente",
+      img: "https://placeimg.com/200/200/people",
+    },
+    {
+      title: "Naturaleza",
+      img: "https://placeimg.com/200/200/nature",
+    },
+  ];
+cardContent.forEach((el) => {
+  $template.querySelector("img").setAttribute("src", el.img);
+  $template.querySelector("img").setAttribute("alt", el.title);
+  $template.querySelector("figcaption").textContent = el.title;
+
+  let $clone = document.importNode($template, true);
+  $fragment.appendChild($clone);
+});
+
+$cards.appendChild($fragment); */
+
+//Modificación de Elementos
+/* const $cards = document.querySelector(".cards");
+$newCard = document.createElement("figure");
+$clonCards = $cards.cloneNode(true);
+
+$newCard.innerHTML = `
+  <img src="https://placeimg.com/200/200/any" alt="Any">
+  <figcaption>Any</figcaption>
+`;
+$newCard.classList.add("card");
+
+//remplazar
+//$cards.replaceChild($newCard, $cards.children[2]);
+
+//agregar
+//$cards.insertBefore($newCard, $cards.firstElementChild);
+
+//Remover
+//$cards.removeChild($cards.lastElementChild);
+
+//clonar las tarjetas
+document.body.appendChild($clonCards);
+ */
+
+//******************************************************* */
+//Modificando Elementos (Cool Style);
+/* .insertAdjacent...
+      .insertAdjacentElement(position, el);
+      .insertAdjancentHTML(position,html);
+      .insertAdjacentText(position, text);
+    
+    Posiciones:
+      beforebegin(hermano anterior);
+      afterbegin(primer hijo);
+      beforeend(ultimo hijo)
+      afterend(hermano siguiente);
+  */
+/* const $cards = document.querySelector(".cards");
+$newCard = document.createElement("figure");
+
+let $contenCard = `
+  <img src="https://placeimg.com/200/200/any" alt="Any">
+  <figcaption></figcaption>
+`;
+$newCard.classList.add("card");
+
+$newCard.insertAdjacentHTML("beforeend", $contenCard);
+
+$newCard.querySelector("figcaption").insertAdjacentText("afterbegin", "any"); */
+//$cards.insertAdjacentElement("afterbegin", $newCard);
+
+/* $cards.insertAdjacentElement("afterbegin", $newCard);
+$cards.insertAdjacentElement("beforeend", $newCard);
+$cards.insertAdjacentElement("afterend", $newCard); */
+
+/* $cards.prepend($newCard);
+$cards.before($newCard);
+$cards.append($newCard);
+$cards.after($newCard); */
+
+/* 
+//Manejadores  de Eventos
+
+const holaMundo = () => {
+  alert("hola mundo");
+  console.log(event);
+};
+
+function saludar(nombre = "Desconocid@") {
+  alert(`hola ${nombre}`);
+  console.log(event);
+}
+
+const $eventoSemantico = document.getElementById("evento-semantico"),
+  $eventoMultiple = document.getElementById("evento-multiple"),
+  $eventoRemover = document.getElementById("evento-remove");
+
+$eventoSemantico.onclick = holaMundo; //sin parentesis
+$eventoSemantico.onclick = function (e) {
+  alert("Hola mundo Manejador de Eventos Semantico");
+  console.log(e);
+  console.log(event);
+};
+
+$eventoMultiple.addEventListener("click", holaMundo);
+$eventoMultiple.addEventListener("click", (e) => {
+  alert("manejador de eventos multiples");
+  console.log(e);
+  console.log(e.type);
+  console.log(e.target);
+  console.log(event);
+});
+
+//Pasar paramentros a un evento
+
+$eventoMultiple.addEventListener("click", () => {
+  saludar();
+  saludar("juan");
+  saludar("carlos");
+});
+
+//Eliminar eventos de un elemento
+const removerDobleClick = (e) => {
+  alert(`Removiendo el evento de tipo ${e.type}`);
+  console.log(e);
+  $eventoRemover.removeEventListener("dblclick", removerDobleClick);
+  $eventoRemover.disabled = true;
+};
+
+$eventoRemover.addEventListener("dblclick", removerDobleClick);
+ */
+
+//stopPropagation & preventDefault
+
+/* const $divEventos = document.querySelectorAll(".eventos-flujo div");
+$linkEventos = document.querySelector(".eventos-flujo a");
+
+function flujoEventos(e) {
+  console.log(
+    `Hola te saluda ${this.className}, el click lo originó ${e.target.className}`
+  );
+  e.stopPropagation();
+}
+
+console.log($divEventos);
+
+$divEventos.forEach((div) => {
+  //Fase de Burbuja
+  div.addEventListener("click", flujoEventos);
+  //div.addEventListener("click", flujoEventos, false);
+  //Fase de Captura
+  //div.addEventListener("click", flujoEventos, true);
+
+  //  div.addEventListener("click", flujoEventos, {
+  //capture: true,
+  //once: true,
+  //});
+});
+
+$linkEventos.addEventListener("click", (e) => {
+  alert("Hola mundo");
+  e.preventDefault();
+  e.stopPropagation();
+}); */
+
+//****************************************************************
+//Delegación de Eventos
+
+function flujoEventos(e) {
+  console.log(
+    `Hola te saluda ${this}, el click lo originó ${e.target.className}`
+  );
+}
+
+document.addEventListener("click", (e) => {
+  console.log("Click en", e.target);
+  if (e.target.matches(".eventos-flujo div")) {
+    flujoEventos(e);
+  }
+
+  if (e.target.matches(".eventos-flujo a")) {
+    alert("Hola mundo");
+    e.preventDefault(); //Detener el flujo
+  }
+});
